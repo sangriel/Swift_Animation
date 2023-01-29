@@ -15,8 +15,6 @@ class SpinningLoadingView : UIViewController {
     
     var shapeLayers : [CAShapeLayer] = []
     
-    
-//    let starImage = UIImage(named: "starFilled")
     lazy var points : [CGPoint] =  [CGPoint(x: self.view.center.x, y: 0),
                                     CGPoint(x: self.view.center.x, y: self.view.center.y - 100)]
     

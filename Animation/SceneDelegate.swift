@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = UINavigationController(rootViewController: SpinningLoadingView())
+        window?.rootViewController = UINavigationController(rootViewController: SpiralLoadingView())
         window?.makeKeyAndVisible()
         window?.windowScene = scene
         

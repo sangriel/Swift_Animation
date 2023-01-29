@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let data : [String] = ["loadingAnimation"]
+    let data : [String] = ["SpinningloadingAnimation","SpiralLoadingAnimation"]
     
     lazy var tableView : UITableView = {
         let tb = UITableView(frame: .zero, style: .plain)
@@ -58,6 +58,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             self.navigationController?.pushViewController(SpinningLoadingView(), animated: true)
+        }
+        else if indexPath.row == 1 {
+            self.navigationController?.pushViewController(SpiralLoadingView(), animated: true)
         }
     }
     

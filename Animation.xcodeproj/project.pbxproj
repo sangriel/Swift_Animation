@@ -15,6 +15,7 @@
 		2FAD35A12982DEE200208D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD359F2982DEE200208D51 /* LaunchScreen.storyboard */; };
 		2FAD35AA2982E10B00208D51 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35A92982E10B00208D51 /* MainTableViewCell.swift */; };
 		2FAD35AD2982E4F800208D51 /* SpinningLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35AC2982E4F800208D51 /* SpinningLoadingView.swift */; };
+		2FDB44152986793A00A82EDA /* SprialLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB44142986793A00A82EDA /* SprialLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2FAD35A22982DEE200208D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FAD35A92982E10B00208D51 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		2FAD35AC2982E4F800208D51 /* SpinningLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningLoadingView.swift; sourceTree = "<group>"; };
+		2FDB44142986793A00A82EDA /* SprialLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprialLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 		2FAD35932982DEE100208D51 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				2FAD35AB2982E4E100208D51 /* View */,
+				2FDB44132986792C00A82EDA /* SprialLoadingView */,
+				2FAD35AB2982E4E100208D51 /* SpinningLoadingView */,
 				2FAD35A82982E0FA00208D51 /* Components */,
 				2FAD35942982DEE100208D51 /* AppDelegate.swift */,
 				2FAD35962982DEE100208D51 /* SceneDelegate.swift */,
@@ -81,12 +84,20 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		2FAD35AB2982E4E100208D51 /* View */ = {
+		2FAD35AB2982E4E100208D51 /* SpinningLoadingView */ = {
 			isa = PBXGroup;
 			children = (
 				2FAD35AC2982E4F800208D51 /* SpinningLoadingView.swift */,
 			);
-			path = View;
+			path = SpinningLoadingView;
+			sourceTree = "<group>";
+		};
+		2FDB44132986792C00A82EDA /* SprialLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				2FDB44142986793A00A82EDA /* SprialLoadingView.swift */,
+			);
+			path = SprialLoadingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 			files = (
 				2FAD35992982DEE100208D51 /* ViewController.swift in Sources */,
 				2FAD35952982DEE100208D51 /* AppDelegate.swift in Sources */,
+				2FDB44152986793A00A82EDA /* SprialLoadingView.swift in Sources */,
 				2FAD35AA2982E10B00208D51 /* MainTableViewCell.swift in Sources */,
 				2FAD35972982DEE100208D51 /* SceneDelegate.swift in Sources */,
 				2FAD35AD2982E4F800208D51 /* SpinningLoadingView.swift in Sources */,
