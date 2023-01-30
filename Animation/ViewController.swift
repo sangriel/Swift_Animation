@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let data : [String] = ["SpinningloadingAnimation","SpiralLoadingAnimation"]
+    let data : [String] = ["SpinningloadingAnimation","SpiralLoadingAnimation","CardTransitionAnimation"]
     
     lazy var tableView : UITableView = {
         let tb = UITableView(frame: .zero, style: .plain)
@@ -61,6 +61,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.row == 1 {
             self.navigationController?.pushViewController(SpiralLoadingView(), animated: true)
+        }
+        else if indexPath.row == 2 {
+            self.navigationController?.pushViewController(MainCardListViewController(), animated: true)
         }
     }
     
