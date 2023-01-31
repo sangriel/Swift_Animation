@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F6D720B2989872900F684FB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D720A2989872900F684FB /* UIView+Extension.swift */; };
 		2FAD35952982DEE100208D51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35942982DEE100208D51 /* AppDelegate.swift */; };
 		2FAD35972982DEE100208D51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35962982DEE100208D51 /* SceneDelegate.swift */; };
 		2FAD35992982DEE100208D51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35982982DEE100208D51 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F6D720A2989872900F684FB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		2FAD35912982DEE100208D51 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAD35942982DEE100208D51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAD35962982DEE100208D51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F6D72092989871800F684FB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2F6D720A2989872900F684FB /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2FAD35882982DEE100208D51 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		2FAD35932982DEE100208D51 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				2F6D72092989871800F684FB /* Extension */,
 				2FDFAF7D298819B4004890F5 /* CardTransitionAnimation */,
 				2FDB44132986792C00A82EDA /* SprialLoadingView */,
 				2FAD35AB2982E4E100208D51 /* SpinningLoadingView */,
@@ -230,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FAD35992982DEE100208D51 /* ViewController.swift in Sources */,
+				2F6D720B2989872900F684FB /* UIView+Extension.swift in Sources */,
 				2FDFAF902988209B004890F5 /* CardViewModel.swift in Sources */,
 				2FAD35952982DEE100208D51 /* AppDelegate.swift in Sources */,
 				2FDFAF8D2988200B004890F5 /* CardDetailViewController.swift in Sources */,

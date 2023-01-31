@@ -74,7 +74,9 @@ extension MainCardListViewController : UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailView = CardDetailViewController()
+        var cardViewModel = dataSource[indexPath.row]
+        cardViewModel.currentType = .detail
+        let detailView = CardDetailViewController(cardViewModel: cardViewModel)
         detailView.modalPresentationStyle = .overCurrentContext
         detailView.transitioningDelegate = transitionManager
         self.present(detailView, animated: true,completion: nil)
