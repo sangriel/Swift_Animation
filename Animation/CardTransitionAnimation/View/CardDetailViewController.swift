@@ -19,16 +19,10 @@ class CardDetailViewController : UIViewController {
     
     private let cardViewModel : CardViewModel
     
-    lazy private var snapShotView : UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.backgroundColor = .white
-        imageView.layer.shadowColor = UIColor.blue.cgColor
-        imageView.layer.shadowOpacity = 0.5
-        imageView.layer.shadowRadius = 8
-        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        imageView.isHidden = true
-        return imageView
+    lazy private var snapShotView : SnapShotView = {
+        let view = SnapShotView()
+        view.isHidden = true
+        return view
     }()
     
     init(cardViewModel : CardViewModel){
@@ -55,17 +49,29 @@ class CardDetailViewController : UIViewController {
         self.view.bringSubviewToFront(backBtn)
     }
     
-    func getCardViewFrame() -> CGRect {
-        return self.cardView!.convert(cardView!.frame, to: nil)
+    func getSnapShopCopy() -> SnapShotView {
+        let view = SnapShotView()
+        view.setimage(image: snapShotView.getimage())
+        view.setCornerRadius(radius: 20)
+        return view
     }
+    
+    private var finalSnapShotScale : CGFloat = 1
+    func getSnapShotFrame() -> CGRect {
+        let center = snapShotView.center
+        let width = view.frame.width * finalSnapShotScale
+        let height = (view.frame.height - view.safeAreaInsets.top) * finalSnapShotScale
+        let frame = CGRect(x: center.x - (width / 2), y: center.y - (height / 2), width: width, height: height)
+        return frame
+    }
+    
+    
     @objc
     func backBtnTapped(sender : UIButton){
         if let nav = self.navigationController {
-            print("pop")
             nav.popViewController(animated: true)
         }
         else {
-            print("dismiss")
             self.dismiss(animated: true)
         }
         
@@ -73,13 +79,15 @@ class CardDetailViewController : UIViewController {
     
     
     func createSnapShot() {
-        let snapShot = self.view.createSnapshot()
-        snapShotView.image = snapShot
+        let topPadding = self.view.safeAreaInsets.top
+        let snapShotFrame = CGRect(x: 0, y: -topPadding, width: self.view.frame.width, height: self.view.frame.height)
+        let size = CGSize(width: self.view.frame.width, height: self.view.frame.height - topPadding)
+        let snapShot = self.view.createSnapshot(withFrame: snapShotFrame, size: size)
+        snapShotView.setimage(image: snapShot)
         scrollView.addSubview(snapShotView)
-        snapShotView.frame = scrollView.frame
-        
-    }
+        snapShotView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - topPadding)
     
+    }
     
     
 }
@@ -103,6 +111,7 @@ extension CardDetailViewController {
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         scrollView.delegate = self
+        
         
     }
     private func makecardView(){
@@ -130,6 +139,7 @@ extension CardDetailViewController {
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.numberOfLines = 0
+        label.backgroundColor = .white
         label.text = """
 What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -152,30 +162,15 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 }
 extension CardDetailViewController : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yContentOffset = scrollView.contentOffset.y
         let dismissalYpoint : CGFloat = 20
-        var yContentOffset = scrollView.contentOffset.y
-        let topPadding = self.view.safeAreaInsets.top
-        print(yContentOffset)
-        yContentOffset += topPadding
         
-        if scrollView.isTracking {
-            scrollView.bounces = true
-        }
-        else {
-            scrollView.bounces = yContentOffset > 500
-        }
-        
-        if yContentOffset < 0 && scrollView.isTracking {
+        if yContentOffset < 0 {
             hideContents()
             snapShotView.isHidden = false
+            setSnapShotScale(yContentOffset : yContentOffset)
             
-            let xscale = (100 + yContentOffset ) / 100
-            let yscale = 0
-            snapShotView.transform = CGAffineTransform(scaleX: xscale, y: xscale)
-
-            snapShotView.layer.cornerRadius = max(20, abs(yContentOffset))
-            
-            if dismissalYpoint + yContentOffset <= 0 {
+            if scrollView.isTracking && dismissalYpoint + yContentOffset <= 0 {
                 self.dismiss(animated: true)
             }
         }
@@ -185,17 +180,24 @@ extension CardDetailViewController : UIScrollViewDelegate {
         }
     }
     
-    func hideContents(){
+    private func setSnapShotScale(yContentOffset : CGFloat) {
+        let scale = (100 + yContentOffset ) / 100
+        snapShotView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        self.finalSnapShotScale = scale
+        snapShotView.setCornerRadius(radius:  min(20, abs(yContentOffset)))
+        
+    }
+    
+    
+    private func hideContents(){
+        self.view.backgroundColor = .clear
         cardView?.isHidden = true
         label.isHidden = true
     }
-    func showContents(){
+    private func showContents(){
+        self.view.backgroundColor = .white
         cardView?.isHidden = false
         label.isHidden = false
     }
-    
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        scrollView.bounces = true
-    }
+
 }

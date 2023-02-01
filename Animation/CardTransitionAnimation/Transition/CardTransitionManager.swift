@@ -77,6 +77,13 @@ extension CardTransitionManager : UIViewControllerAnimatedTransitioning {
         return transitionDuration
         
     }
+    
+    func animationEnded(_ transitionCompleted: Bool) {
+        if transitionCompleted {
+            whiteView.removeFromSuperview()
+        }
+    }
+    
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let containerView = transitionContext.containerView
@@ -90,27 +97,24 @@ extension CardTransitionManager : UIViewControllerAnimatedTransitioning {
         guard let mainCardListViewController = fetchMainCardListViewController(viewController: transition == .presentation ? fromViewController! : toViewController!),
               let cardView = mainCardListViewController.selectedCardView() else { return }
         
-
-        containerView.addSubview(whiteView)
-        
-        let cardViewCopy = makeCardViewCopy(cardView: cardView)
-        containerView.addSubview(cardViewCopy)
-        
-        
         var listCardViewFrame = cardView.convert(cardView.frame, to: nil)
         //CardView가 cell의 top left bottom right 10, 20, 10, 20의 패딩 있어서 조정을 해줘야 함
         listCardViewFrame.origin.x -= 20
         listCardViewFrame.origin.y -= 10
-        cardViewCopy.frame = listCardViewFrame
-        cardViewCopy.layoutIfNeeded()
-        
-        whiteView.frame = transition == .presentation ? listCardViewFrame : containerView.frame
-        whiteView.layer.cornerRadius = transition.cornerRadius
-        whiteView.layoutIfNeeded()
-        
-        
-        
+       
         if transition == .presentation {
+            containerView.addSubview(whiteView)
+            whiteView.frame = transition == .presentation ? listCardViewFrame : containerView.frame
+            whiteView.layer.cornerRadius = transition.cornerRadius
+            whiteView.layoutIfNeeded()
+            
+            let cardViewCopy = makeCardViewCopy(cardView: cardView)
+            containerView.addSubview(cardViewCopy)
+            cardViewCopy.frame = listCardViewFrame
+            cardViewCopy.layoutIfNeeded()
+            
+           
+            
             let detailView = toViewController as! CardDetailViewController
             cardView.isHidden = true
             
@@ -124,12 +128,15 @@ extension CardTransitionManager : UIViewControllerAnimatedTransitioning {
         }
         else {
             let detailView = fromViewController as! CardDetailViewController
-            cardViewCopy.frame = detailView.getCardViewFrame()
-            moveAndConvertToListCardView(for: cardViewCopy, frame: listCardViewFrame, containerView: containerView, yOrigin: listCardViewFrame.origin.y, completion: {
+            let snapShotCopy = detailView.getSnapShopCopy()
+            containerView.addSubview(snapShotCopy)
+            snapShotCopy.frame = detailView.getSnapShotFrame()
+            snapShotCopy.layoutIfNeeded()
+            
+            moveAndConvertToListCardView(for: snapShotCopy, frame: listCardViewFrame, containerView: containerView, yOrigin: listCardViewFrame.origin.y, completion: {
                 transitionContext.completeTransition(true)
             })
         }
-        
         
     }
     
@@ -160,22 +167,20 @@ extension CardTransitionManager : UIViewControllerAnimatedTransitioning {
         return animator
     }
     
-    private func shrinkToListAnimator(for cardView : CardView,frame ListCardViewFrame : CGRect, in containerView : UIView, yOrigin : CGFloat) -> UIViewPropertyAnimator {
-        let springTiming = UISpringTimingParameters(dampingRatio: 0.75, initialVelocity: CGVector(dx: 0, dy: 3))
+    private func shrinkToListAnimator(for snapShot : UIView ,frame ListCardViewFrame : CGRect, in containerView : UIView, yOrigin : CGFloat) -> UIViewPropertyAnimator {
+        let springTiming = UISpringTimingParameters(dampingRatio: 0.75, initialVelocity: CGVector(dx: 0, dy: 0))
         let animator =  UIViewPropertyAnimator(duration: transitionDuration - shrinkDuration, timingParameters: springTiming)
         
         animator.addAnimations {
-            cardView.transform = .identity
             
             self.blurEffectView.alpha = self.transition.blurAlpha
             self.dimmingView.alpha = self.transition.dimAlpha
             
-            cardView.layer.cornerRadius = self.transition.nextType.cornerRadius
             self.whiteView.layer.cornerRadius = self.transition.nextType.cornerRadius
             self.whiteView.frame = ListCardViewFrame
-            cardView.frame = ListCardViewFrame
+            snapShot.frame = ListCardViewFrame
             
-            cardView.layoutIfNeeded()
+            snapShot.layoutIfNeeded()
             containerView.layoutIfNeeded()
         }
         
@@ -183,19 +188,16 @@ extension CardTransitionManager : UIViewControllerAnimatedTransitioning {
         
     }
     
-    private func moveAndConvertToListCardView(for CopyCardView : CardView,frame ListCardViewFrame : CGRect, containerView : UIView, yOrigin : CGFloat, completion : @escaping() -> ()) {
-        let shrinkAnimator = self.shrinkAnimator(for: CopyCardView)
-        let shrinkAnimator2 = self.shrinkToListAnimator(for: CopyCardView, frame: ListCardViewFrame, in: containerView, yOrigin: yOrigin)
+    private func moveAndConvertToListCardView(for snapShot : UIView,frame ListCardViewFrame : CGRect, containerView : UIView, yOrigin : CGFloat, completion : @escaping() -> ()) {
+        let shrinkAnimator2 = self.shrinkToListAnimator(for: snapShot, frame: ListCardViewFrame, in: containerView, yOrigin: yOrigin)
+
         
-        shrinkAnimator.addAnimations {
-            shrinkAnimator2.startAnimation()
-        }
         
         shrinkAnimator2.addCompletion { _ in
             completion()
         }
+        shrinkAnimator2.startAnimation()
         
-        shrinkAnimator.startAnimation()
     }
     
     
