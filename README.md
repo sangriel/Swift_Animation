@@ -6,4 +6,4 @@
 
 |SpinningLoading|SpiralLoading|CardTransitionA|
 |---|---|---|
-|테스트1|테스트2|테스트3|
+|테스트1|테스트2|![cardTransitionAnimation](https://user-images.githubusercontent.com/39114237/216034848-4febc1e7-730f-48b7-a957-177fc484517d.gif)|
