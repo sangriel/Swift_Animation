@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2F6D720B2989872900F684FB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D720A2989872900F684FB /* UIView+Extension.swift */; };
 		2F7880C7298A75B80097EF39 /* SnapShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7880C6298A75B80097EF39 /* SnapShotView.swift */; };
+		2F8044DE298A90C90048C8A4 /* OverLappingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8044DD298A90C90048C8A4 /* OverLappingCollectionViewController.swift */; };
+		2F8044E1298A91E60048C8A4 /* OverLappingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8044E0298A91E60048C8A4 /* OverLappingCollectionViewCell.swift */; };
+		2F8044E3298A948B0048C8A4 /* OverLappingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8044E2298A948B0048C8A4 /* OverLappingCardView.swift */; };
 		2FAD35952982DEE100208D51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35942982DEE100208D51 /* AppDelegate.swift */; };
 		2FAD35972982DEE100208D51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35962982DEE100208D51 /* SceneDelegate.swift */; };
 		2FAD35992982DEE100208D51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35982982DEE100208D51 /* ViewController.swift */; };
@@ -17,6 +20,7 @@
 		2FAD35A12982DEE200208D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD359F2982DEE200208D51 /* LaunchScreen.storyboard */; };
 		2FAD35AA2982E10B00208D51 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35A92982E10B00208D51 /* MainTableViewCell.swift */; };
 		2FAD35AD2982E4F800208D51 /* SpinningLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD35AC2982E4F800208D51 /* SpinningLoadingView.swift */; };
+		2FD826BB298FA4E7006F888E /* OverLappingCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD826BA298FA4E7006F888E /* OverLappingCardViewModel.swift */; };
 		2FDB44152986793A00A82EDA /* SprialLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB44142986793A00A82EDA /* SprialLoadingView.swift */; };
 		2FDFAF7F298819CB004890F5 /* MainCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFAF7E298819CB004890F5 /* MainCardListViewController.swift */; };
 		2FDFAF8429881A19004890F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFAF8329881A19004890F5 /* CardView.swift */; };
@@ -29,6 +33,9 @@
 /* Begin PBXFileReference section */
 		2F6D720A2989872900F684FB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		2F7880C6298A75B80097EF39 /* SnapShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShotView.swift; sourceTree = "<group>"; };
+		2F8044DD298A90C90048C8A4 /* OverLappingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLappingCollectionViewController.swift; sourceTree = "<group>"; };
+		2F8044E0298A91E60048C8A4 /* OverLappingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLappingCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F8044E2298A948B0048C8A4 /* OverLappingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLappingCardView.swift; sourceTree = "<group>"; };
 		2FAD35912982DEE100208D51 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAD35942982DEE100208D51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAD35962982DEE100208D51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +46,7 @@
 		2FAD35A22982DEE200208D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FAD35A92982E10B00208D51 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		2FAD35AC2982E4F800208D51 /* SpinningLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningLoadingView.swift; sourceTree = "<group>"; };
+		2FD826BA298FA4E7006F888E /* OverLappingCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLappingCardViewModel.swift; sourceTree = "<group>"; };
 		2FDB44142986793A00A82EDA /* SprialLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprialLoadingView.swift; sourceTree = "<group>"; };
 		2FDFAF7E298819CB004890F5 /* MainCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardListViewController.swift; sourceTree = "<group>"; };
 		2FDFAF8329881A19004890F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -67,6 +75,33 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		2F8044DB298A90880048C8A4 /* OverLappingCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2FD826B9298FA4D9006F888E /* Model */,
+				2F8044DF298A91D60048C8A4 /* View */,
+				2F8044DC298A909E0048C8A4 /* ViewController */,
+			);
+			path = OverLappingCollectionView;
+			sourceTree = "<group>";
+		};
+		2F8044DC298A909E0048C8A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2F8044DD298A90C90048C8A4 /* OverLappingCollectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2F8044DF298A91D60048C8A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F8044E0298A91E60048C8A4 /* OverLappingCollectionViewCell.swift */,
+				2F8044E2298A948B0048C8A4 /* OverLappingCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2FAD35882982DEE100208D51 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2F6D72092989871800F684FB /* Extension */,
+				2F8044DB298A90880048C8A4 /* OverLappingCollectionView */,
 				2FDFAF7D298819B4004890F5 /* CardTransitionAnimation */,
 				2FDB44132986792C00A82EDA /* SprialLoadingView */,
 				2FAD35AB2982E4E100208D51 /* SpinningLoadingView */,
@@ -118,6 +154,14 @@
 			path = SpinningLoadingView;
 			sourceTree = "<group>";
 		};
+		2FD826B9298FA4D9006F888E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FD826BA298FA4E7006F888E /* OverLappingCardViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2FDB44132986792C00A82EDA /* SprialLoadingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,21 +174,21 @@
 			isa = PBXGroup;
 			children = (
 				2FDFAF8E29882095004890F5 /* Model */,
-				2FDFAF8B29881FFD004890F5 /* View */,
+				2FDFAF8B29881FFD004890F5 /* ViewController */,
 				2FDFAF8829881EDA004890F5 /* Transition */,
-				2FDFAF8229881A0E004890F5 /* Components */,
+				2FDFAF8229881A0E004890F5 /* View */,
 			);
 			path = CardTransitionAnimation;
 			sourceTree = "<group>";
 		};
-		2FDFAF8229881A0E004890F5 /* Components */ = {
+		2FDFAF8229881A0E004890F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2FDFAF8329881A19004890F5 /* CardView.swift */,
 				2FDFAF8529881BBB004890F5 /* MainCardListCell.swift */,
 				2F7880C6298A75B80097EF39 /* SnapShotView.swift */,
 			);
-			path = Components;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2FDFAF8829881EDA004890F5 /* Transition */ = {
@@ -155,13 +199,13 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
-		2FDFAF8B29881FFD004890F5 /* View */ = {
+		2FDFAF8B29881FFD004890F5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2FDFAF7E298819CB004890F5 /* MainCardListViewController.swift */,
 				2FDFAF8C2988200B004890F5 /* CardDetailViewController.swift */,
 			);
-			path = View;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		2FDFAF8E29882095004890F5 /* Model */ = {
@@ -244,16 +288,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FAD35992982DEE100208D51 /* ViewController.swift in Sources */,
+				2F8044E3298A948B0048C8A4 /* OverLappingCardView.swift in Sources */,
 				2F6D720B2989872900F684FB /* UIView+Extension.swift in Sources */,
 				2FDFAF902988209B004890F5 /* CardViewModel.swift in Sources */,
+				2F8044DE298A90C90048C8A4 /* OverLappingCollectionViewController.swift in Sources */,
 				2FAD35952982DEE100208D51 /* AppDelegate.swift in Sources */,
 				2FDFAF8D2988200B004890F5 /* CardDetailViewController.swift in Sources */,
 				2FDB44152986793A00A82EDA /* SprialLoadingView.swift in Sources */,
+				2FD826BB298FA4E7006F888E /* OverLappingCardViewModel.swift in Sources */,
 				2FAD35AA2982E10B00208D51 /* MainTableViewCell.swift in Sources */,
 				2FDFAF8A29881EEE004890F5 /* CardTransitionManager.swift in Sources */,
 				2FAD35972982DEE100208D51 /* SceneDelegate.swift in Sources */,
 				2FAD35AD2982E4F800208D51 /* SpinningLoadingView.swift in Sources */,
 				2FDFAF8429881A19004890F5 /* CardView.swift in Sources */,
+				2F8044E1298A91E60048C8A4 /* OverLappingCollectionViewCell.swift in Sources */,
 				2FDFAF7F298819CB004890F5 /* MainCardListViewController.swift in Sources */,
 				2F7880C7298A75B80097EF39 /* SnapShotView.swift in Sources */,
 				2FDFAF8629881BBB004890F5 /* MainCardListCell.swift in Sources */,
